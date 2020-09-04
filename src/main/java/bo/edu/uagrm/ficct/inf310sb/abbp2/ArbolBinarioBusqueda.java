@@ -64,9 +64,7 @@ public class ArbolBinarioBusqueda<K extends Comparable<K>, V> implements IArbolB
     @Override
     public V buscar(K clave) {
         NodoBinario<K, V> nodoActual = this.raiz;
-
         while (!NodoBinario.esNodoVacio(nodoActual)) {
-
             //Dato a buscar es mayor que el dato actual, ir a la derecha
             if (clave.compareTo(nodoActual.getClave()) > 0) {
                 nodoActual = nodoActual.getHijoDerecho();
@@ -159,7 +157,7 @@ public class ArbolBinarioBusqueda<K extends Comparable<K>, V> implements IArbolB
                     && !recorrido.contains(nodoActual.getHijoDerecho().getClave())) {
                 pilaDeNodos.push(nodoActual);
                 pilaDeNodos.push(nodoActual.getHijoDerecho());
-            }else{
+            } else {
                 recorrido.add(nodoActual.getClave());
             }
         }
@@ -434,24 +432,75 @@ public class ArbolBinarioBusqueda<K extends Comparable<K>, V> implements IArbolB
     }
 
     //pregunta 9 sucesor InOrden
+    public K sucesorInorden(K clave) {
+        V valor = buscar(clave);
+        NodoBinario<K, V> nodoB = new NodoBinario(clave, valor);
+        nodoB = sucesorInOrden(nodoB);
+        return (!NodoBinario.esNodoVacio(nodoB)) ? nodoB.getClave() : null;
+    }
+
+    private NodoBinario<K, V> sucesorInOrden(NodoBinario<K, V> nodo) {
+        if (!this.contiene(nodo.getClave())) {
+            //el nodo no existe en el arbol
+            return null;
+        } else {
+            //el nodo existe en el arbol
+            Stack<NodoBinario<K, V>> recorrido = new Stack<>();
+            NodoBinario<K, V> nodoActual = this.raiz;
+            //ciclo para llegar hasta el nodo de interes
+            while (nodoActual.getClave().compareTo(nodo.getClave()) != 0) {
+                if (nodo.getClave().compareTo(nodoActual.getClave()) > 0) {
+                    //hijo derecho
+                    recorrido.push(nodoActual);
+                    nodoActual = nodoActual.getHijoDerecho();
+
+                } else if (nodo.getClave().compareTo(nodoActual.getClave()) < 0) {
+                    //hijo izquierdo
+                    recorrido.push(nodoActual);
+                    nodoActual = nodoActual.getHijoIzquierdo();
+                }
+            }
+
+            //ya encontramos el nodo de interes y su recorrido
+            if (nodoActual.esVacioHijoDerecho()) {
+                NodoBinario<K, V> ancestro = recorrido.pop();
+                while (!recorrido.empty() && ancestro.getClave().compareTo(nodo.getClave()) < 0) {
+                    //buscamos el ancestro mayor al nodo de interes
+                    ancestro = recorrido.pop();
+                }
+                return (ancestro.getClave().compareTo(nodo.getClave()) > 0) ? ancestro : null;
+
+            } else {
+                nodoActual = nodoActual.getHijoDerecho();
+                while (!nodoActual.esVacioHijoIzquierdo()) {
+                    nodoActual = nodoActual.getHijoIzquierdo();
+                }
+                return nodoActual;
+            }
+
+        }
+    }
+
     //pregunta 10 predecesor InOrden
     //pregunta 11 eliminar de un arbol AVL
 //pregunta 12 cantidad de nodos completos luego del nivel N
     public int cantidadNodosCompletos(int n) {
-        return cantidadNodosCompletos(raiz, n, 0);
+        return cantidadNodosCompletos(this.raiz, n, 0);
     }
 
     private int cantidadNodosCompletos(NodoBinario<K, V> nodo, int n, int a) {
-        if (nodo == null) {
+        if (NodoBinario.esNodoVacio(nodo)) {
             return 0;
         }
         if (a > n) {
-            if (!nodo.esVacioHijoIzquierdo() && !nodo.esVacioHijoDerecho()) {
-                return 1;
+            if (nodo.esNodoCompleto()) {
+                return 1 + cantidadNodosCompletos(nodo.getHijoIzquierdo(), n, a + 1)
+                        + cantidadNodosCompletos(nodo.getHijoDerecho(), n, a + 1);
             }
         }
         return cantidadNodosCompletos(nodo.getHijoIzquierdo(), n, a + 1)
                 + cantidadNodosCompletos(nodo.getHijoDerecho(), n, a + 1);
+
     }
 
 }

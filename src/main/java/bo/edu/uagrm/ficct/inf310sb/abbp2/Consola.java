@@ -27,12 +27,10 @@ public class Consola {
         System.out.println("3.Cantidad de hojas en Nivel N=" + n + ": " + arbolb.cantidadHojasN(n));
         System.out.println("4.Cantidad de hojas en Nivel N=" + n + " Iterativo:" + arbolb.cantidadHojasNI(n));
         System.out.println("6.Arbol balanceado? " + arbolb.esBalanceado());
-        System.out.println("Recorrido Por Niveles: " + arbolb.recorridoPorNiveles());
-        System.out.println("Recorrido PreOrden: " + arbolb.recorridoEnPreOrden());
-        System.out.println("Recorrido InOrden: " + arbolb.recorridoEnInOrden());
-        System.out.println("Recorrido PostOrden: " + arbolb.recorridoEnPostOrden());
+
         int k = 50;
         System.out.println("9.Sucesor InOrden k=" + k + ": " + arbolb.sucesorInorden(k));
+        System.out.println("10.Predecesor InOrden k=" + k + ": " + arbolb.predecesorInorden(k));
         arbolb.insertar(20, "Carlos");
         arbolb.insertar(30, "Juan");
 
@@ -44,12 +42,9 @@ public class Consola {
         System.out.println("3.Cantidad de hojas en Nivel N=" + n + ": " + arbolb.cantidadHojasN(n));
         System.out.println("4.Cantidad de hojas en Nivel N=" + n + " Iterativo:" + arbolb.cantidadHojasNI(n));
         System.out.println("6.Arbol balanceado? " + arbolb.esBalanceado());
-        System.out.println("Recorrido Por Niveles: " + arbolb.recorridoPorNiveles());
-        System.out.println("Recorrido PreOrden: " + arbolb.recorridoEnPreOrden());
-        System.out.println("Recorrido InOrden: " + arbolb.recorridoEnInOrden());
-        System.out.println("Recorrido PostOrden: " + arbolb.recorridoEnPostOrden());
         k = 25;
         System.out.println("9.Sucesor InOrden k=" + k + ": " + arbolb.sucesorInorden(k));
+        System.out.println("10.Predecesor InOrden k=" + k + ": " + arbolb.predecesorInorden(k));
         arbolb.insertar(1, "Pedro");
         arbolb.insertar(21, "Luis");
         arbolb.insertar(45, "Lilian");
@@ -57,16 +52,15 @@ public class Consola {
         System.out.println("------PREGUNTAS-------");
         System.out.println(arbolb);
         System.out.println("6.Arbol balanceado? " + arbolb.esBalanceado());
-        System.out.println("Recorrido Por Niveles: " + arbolb.recorridoPorNiveles());
-        System.out.println("Recorrido PreOrden: " + arbolb.recorridoEnPreOrden());
-        System.out.println("Recorrido InOrden: " + arbolb.recorridoEnInOrden());
-        System.out.println("Recorrido PostOrden: " + arbolb.recorridoEnPostOrden());
         k = 21;
         System.out.println("9.Sucesor InOrden k=" + k + ": " + arbolb.sucesorInorden(k));
+        System.out.println("10.Predecesor InOrden k=" + k + ": " + arbolb.predecesorInorden(k));
         k = 45;
         System.out.println("9.Sucesor InOrden k=" + k + ": " + arbolb.sucesorInorden(k));
+        System.out.println("10.Predecesor InOrden k=" + k + ": " + arbolb.predecesorInorden(k));
         k = 75;
         System.out.println("9.Sucesor InOrden k=" + k + ": " + arbolb.sucesorInorden(k));
+        System.out.println("10.Predecesor InOrden k=" + k + ": " + arbolb.predecesorInorden(k));
         arbolb.insertar(100, "Marcos");
         arbolb.insertar(70, "Maria");
 
@@ -78,14 +72,13 @@ public class Consola {
         System.out.println("4.Cantidad de hojas en Nivel N=1 Iterativo:" + arbolb.cantidadHojasNI(1));
         System.out.println("5.Cantidad de hojas antes del Nivel N=3 Iterativo:" + arbolb.cantidadHojasAntesNI(3));
         System.out.println("6.Arbol balanceado? " + arbolb.esBalanceado());
-        System.out.println("Recorrido Por Niveles: " + arbolb.recorridoPorNiveles());
-        System.out.println("Recorrido PreOrden: " + arbolb.recorridoEnPreOrden());
-        System.out.println("Recorrido InOrden: " + arbolb.recorridoEnInOrden());
-        System.out.println("Recorrido PostOrden: " + arbolb.recorridoEnPostOrden());
         k = 50;
         System.out.println("9.Sucesor InOrden k=" + k + ": " + arbolb.sucesorInorden(k));
+        System.out.println("10.Predecesor InOrden k=" + k + ": " + arbolb.predecesorInorden(k));
         k = 100;
         System.out.println("9.Sucesor InOrden k=" + k + ": " + arbolb.sucesorInorden(k));
+        System.out.println("10.Predecesor InOrden k=" + k + ": " + arbolb.predecesorInorden(k));
+
         System.out.println("----------------------------");
 
         System.out.println("PREGUNTA 8");

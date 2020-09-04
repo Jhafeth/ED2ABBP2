@@ -482,6 +482,50 @@ public class ArbolBinarioBusqueda<K extends Comparable<K>, V> implements IArbolB
     }
 
     //pregunta 10 predecesor InOrden
+    public K predecesorInorden(K clave) {
+        V valor = buscar(clave);
+        NodoBinario<K, V> nodoB = new NodoBinario(clave, valor);
+        nodoB = predecesorInOrden(nodoB);
+        return (!NodoBinario.esNodoVacio(nodoB)) ? nodoB.getClave() : null;
+    }
+
+    private NodoBinario<K, V> predecesorInOrden(NodoBinario<K, V> nodo) {
+        if (!this.contiene(nodo.getClave())) {
+            //el nodo no existe en el arbol
+            return null;
+        } else {
+            //el nodo existe en el arbol
+            Stack<NodoBinario<K, V>> recorrido = new Stack<>();
+            NodoBinario<K, V> nodoActual = this.raiz;
+            //ciclo para llegar hasta el nodo de interes
+            while (nodoActual.getClave().compareTo(nodo.getClave()) != 0) {
+                if (nodo.getClave().compareTo(nodoActual.getClave()) > 0) {
+                    //hijo derecho
+                    recorrido.push(nodoActual);
+                    nodoActual = nodoActual.getHijoDerecho();
+
+                } else if (nodo.getClave().compareTo(nodoActual.getClave()) < 0) {
+                    //hijo izquierdo
+                    recorrido.push(nodoActual);
+                    nodoActual = nodoActual.getHijoIzquierdo();
+                }
+            }
+
+            //ya encontramos el nodo de interes y su recorrido
+            if (nodoActual.esVacioHijoIzquierdo()) {
+                NodoBinario<K, V> ancestro = recorrido.pop();
+                return (ancestro.getClave().compareTo(nodo.getClave()) < 0) ? ancestro : null;
+            } else {
+                nodoActual = nodoActual.getHijoIzquierdo();
+                while (!nodoActual.esVacioHijoDerecho()) {
+                    nodoActual = nodoActual.getHijoDerecho();
+                }
+                return nodoActual;
+            }
+
+        }
+    }
+
     //pregunta 11 eliminar de un arbol AVL
 //pregunta 12 cantidad de nodos completos luego del nivel N
     public int cantidadNodosCompletos(int n) {

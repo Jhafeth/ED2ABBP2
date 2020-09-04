@@ -328,12 +328,9 @@ public class ArbolBinarioBusqueda<K extends Comparable<K>, V> implements IArbolB
         }
         return cantidad;
     }
-    
+
     //pregunta 6 verificar si el arbol esta balenceado recursivo
-    
-    
     //pregunta 7 logica de postOrden verificar si esta balanceado iterativo
-    
     //pregunta 8 reconstruir arbol con listas en preorden e inorden
     public void reconstruir(List<NodoBinario<K, V>> listaPreOrden, List<NodoBinario<K, V>> listaInOrden) {
         vaciar();
@@ -371,8 +368,7 @@ public class ArbolBinarioBusqueda<K extends Comparable<K>, V> implements IArbolB
         }
         return nuevoNodo;
     }
-    
-    
+
     //    public boolean isAVL() {
     //        return isAVL(raiz);
     //    }
@@ -392,23 +388,20 @@ public class ArbolBinarioBusqueda<K extends Comparable<K>, V> implements IArbolB
     //
     //        return bandera && isAVL(nodo.getHijoIzquierdo()) && isAVL(nodo.getHijoDerecho());
     //    }
-
     //pregunta 9 sucesor InOrden
     //pregunta 10 predecesor InOrden
     //pregunta 11 eliminar de un arbol AVL
-    
-    
 //pregunta 12 cantidad de nodos completos luego del nivel N
     public int cantidadNodosCompletos(int n) {
-        return cantidadHojasN(raiz, n, 0);
+        return cantidadNodosCompletos(raiz, n, 0);
     }
 
-    private int cantidadNodosCompletos(NodoBinario nodo, int n, int a) {
+    private int cantidadNodosCompletos(NodoBinario<K, V> nodo, int n, int a) {
         if (nodo == null) {
             return 0;
         }
-        if (nodo.esNodoCompleto()) {
-            if (a > n) {
+        if (a > n) {
+            if (!nodo.esVacioHijoIzquierdo() && !nodo.esVacioHijoDerecho()) {
                 return 1;
             }
         }

@@ -27,8 +27,10 @@ public class Consola {
         System.out.println("3.Cantidad de hojas en Nivel N=1:" + arbolb.cantidadHojasN(1));
         System.out.println("4.Cantidad de hojas en Nivel N=1 Iterativo:" + arbolb.cantidadHojasNI(1));
         System.out.println("6.Arbol balanceado? " + arbolb.esBalanceado());
+        System.out.println("Recorrido Por Niveles: " + arbolb.recorridoPorNiveles());
+        System.out.println("Recorrido PreOrden: " + arbolb.recorridoEnPreOrden());
         System.out.println("Recorrido InOrden: " + arbolb.recorridoEnInOrden());
-        System.out.println("Recorrido InOrden: " + arbolb.recorridoEnPreOrden());
+        System.out.println("Recorrido PostOrden: " + arbolb.recorridoEnPostOrden());
         arbolb.insertar(20, "Carlos");
         arbolb.insertar(30, "Juan");
         System.out.println("------PREGUNTAS-------");
@@ -38,13 +40,19 @@ public class Consola {
         System.out.println("3.Cantidad de hojas en Nivel N=1:" + arbolb.cantidadHojasN(1));
         System.out.println("4.Cantidad de hojas en Nivel N=1 Iterativo:" + arbolb.cantidadHojasNI(1));
         System.out.println("6.Arbol balanceado? " + arbolb.esBalanceado());
+        System.out.println("Recorrido Por Niveles: " + arbolb.recorridoPorNiveles());
+        System.out.println("Recorrido PreOrden: " + arbolb.recorridoEnPreOrden());
         System.out.println("Recorrido InOrden: " + arbolb.recorridoEnInOrden());
+        System.out.println("Recorrido PostOrden: " + arbolb.recorridoEnPostOrden());
         arbolb.insertar(1, "Pedro");
         arbolb.insertar(21, "Luis");
         System.out.println("------PREGUNTAS-------");
         System.out.println(arbolb);
         System.out.println("6.Arbol balanceado? " + arbolb.esBalanceado());
+        System.out.println("Recorrido Por Niveles: " + arbolb.recorridoPorNiveles());
+        System.out.println("Recorrido PreOrden: " + arbolb.recorridoEnPreOrden());
         System.out.println("Recorrido InOrden: " + arbolb.recorridoEnInOrden());
+        System.out.println("Recorrido PostOrden: " + arbolb.recorridoEnPostOrden());
         arbolb.insertar(100, "Marcos");
         arbolb.insertar(70, "Maria");
 
@@ -56,7 +64,10 @@ public class Consola {
         System.out.println("4.Cantidad de hojas en Nivel N=1 Iterativo:" + arbolb.cantidadHojasNI(1));
         System.out.println("5.Cantidad de hojas antes del Nivel N=3 Iterativo:" + arbolb.cantidadHojasAntesNI(3));
         System.out.println("6.Arbol balanceado? " + arbolb.esBalanceado());
+        System.out.println("Recorrido Por Niveles: " + arbolb.recorridoPorNiveles());
+        System.out.println("Recorrido PreOrden: " + arbolb.recorridoEnPreOrden());
         System.out.println("Recorrido InOrden: " + arbolb.recorridoEnInOrden());
+        System.out.println("Recorrido PostOrden: " + arbolb.recorridoEnPostOrden());
         System.out.println("----------------------------");
 
         System.out.println("PREGUNTA 8");
@@ -80,6 +91,10 @@ public class Consola {
         ArbolBinarioBusqueda<Integer, String> arbolb2 = new ArbolBinarioBusqueda<>();
         arbolb2.reconstruir(listaPreOrden, listaInOrden);
         System.out.println(arbolb2);
+        System.out.println("Recorrido Por Niveles: " + arbolb2.recorridoPorNiveles());
+        System.out.println("Recorrido PreOrden: " + arbolb2.recorridoEnPreOrden());
+        System.out.println("Recorrido InOrden: " + arbolb2.recorridoEnInOrden());
+        System.out.println("Recorrido PostOrden: " + arbolb2.recorridoEnPostOrden());
         System.out.println("----------------------------");
         System.out.println("PREGUNTA 12");
         System.out.println(arbolb);

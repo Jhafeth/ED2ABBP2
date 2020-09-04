@@ -142,7 +142,28 @@ public class ArbolBinarioBusqueda<K extends Comparable<K>, V> implements IArbolB
 
     @Override
     public List<K> recorridoEnPostOrden() {
-        return null;
+        List<K> recorrido = new LinkedList<>();
+        if (this.esArbolVacio()) {
+            return recorrido;
+        }
+
+        Stack<NodoBinario<K, V>> pilaDeNodos = new Stack<>();
+        pilaDeNodos.push(this.raiz);
+        while (!pilaDeNodos.isEmpty()) {
+            NodoBinario<K, V> nodoActual = pilaDeNodos.pop();
+            if (!nodoActual.esVacioHijoIzquierdo()
+                    && !recorrido.contains(nodoActual.getHijoIzquierdo().getClave())) {
+                pilaDeNodos.push(nodoActual);
+                pilaDeNodos.push(nodoActual.getHijoIzquierdo());
+            } else if (!nodoActual.esVacioHijoDerecho()
+                    && !recorrido.contains(nodoActual.getHijoDerecho().getClave())) {
+                pilaDeNodos.push(nodoActual);
+                pilaDeNodos.push(nodoActual.getHijoDerecho());
+            }else{
+                recorrido.add(nodoActual.getClave());
+            }
+        }
+        return recorrido;
     }
 
     @Override

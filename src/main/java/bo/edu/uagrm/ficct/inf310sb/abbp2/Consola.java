@@ -20,31 +20,43 @@ public class Consola {
         arbolb.insertar(50, "Alan");
         arbolb.insertar(25, "Brandon");
         arbolb.insertar(75, "Pablo");
-        System.out.println("------PREGUNTAS 1-4 -------");
+        System.out.println("------PREGUNTAS-------");
         System.out.println(arbolb);
-        System.out.println("Cantidad de hojas: " + arbolb.cantidadHojas());
-        System.out.println("Cantidad de hojas Iterativo: " + arbolb.cantidadHojasI());
-        System.out.println("Cantidad de hojas en Nivel N=1:" + arbolb.cantidadHojasN(1));
-        System.out.println("Cantidad de hojas en Nivel N=1 Iterativo:" + arbolb.cantidadHojasNI(1));
+        System.out.println("1.Cantidad de hojas: " + arbolb.cantidadHojas());
+        System.out.println("2.Cantidad de hojas Iterativo: " + arbolb.cantidadHojasI());
+        System.out.println("3.Cantidad de hojas en Nivel N=1:" + arbolb.cantidadHojasN(1));
+        System.out.println("4.Cantidad de hojas en Nivel N=1 Iterativo:" + arbolb.cantidadHojasNI(1));
+        System.out.println("6.Arbol balanceado? " + arbolb.esBalanceado());
+        System.out.println("Recorrido InOrden: " + arbolb.recorridoEnInOrden());
+        System.out.println("Recorrido InOrden: " + arbolb.recorridoEnPreOrden());
         arbolb.insertar(20, "Carlos");
         arbolb.insertar(30, "Juan");
-        System.out.println("------PREGUNTAS 1-4 -------");
+        System.out.println("------PREGUNTAS-------");
         System.out.println(arbolb);
-        System.out.println("Cantidad de hojas: " + arbolb.cantidadHojas());
-        System.out.println("Cantidad de hojas Iterativo: " + arbolb.cantidadHojasI());
-        System.out.println("Cantidad de hojas en Nivel N=1:" + arbolb.cantidadHojasN(1));
-        System.out.println("Cantidad de hojas en Nivel N=1 Iterativo:" + arbolb.cantidadHojasNI(1));
+        System.out.println("1.Cantidad de hojas: " + arbolb.cantidadHojas());
+        System.out.println("2.Cantidad de hojas Iterativo: " + arbolb.cantidadHojasI());
+        System.out.println("3.Cantidad de hojas en Nivel N=1:" + arbolb.cantidadHojasN(1));
+        System.out.println("4.Cantidad de hojas en Nivel N=1 Iterativo:" + arbolb.cantidadHojasNI(1));
+        System.out.println("6.Arbol balanceado? " + arbolb.esBalanceado());
+        System.out.println("Recorrido InOrden: " + arbolb.recorridoEnInOrden());
         arbolb.insertar(1, "Pedro");
+        arbolb.insertar(21, "Luis");
+        System.out.println("------PREGUNTAS-------");
+        System.out.println(arbolb);
+        System.out.println("6.Arbol balanceado? " + arbolb.esBalanceado());
+        System.out.println("Recorrido InOrden: " + arbolb.recorridoEnInOrden());
         arbolb.insertar(100, "Marcos");
         arbolb.insertar(70, "Maria");
-        arbolb.insertar(21, "Luis");
-        System.out.println("------PREGUNTAS 1-5 -------");
+
+        System.out.println("------PREGUNTAS-------");
         System.out.println(arbolb);
-        System.out.println("Cantidad de hojas: " + arbolb.cantidadHojas());
-        System.out.println("Cantidad de hojas Iterativo: " + arbolb.cantidadHojasI());
-        System.out.println("Cantidad de hojas en Nivel N=1:" + arbolb.cantidadHojasN(1));
-        System.out.println("Cantidad de hojas en Nivel N=1 Iterativo:" + arbolb.cantidadHojasNI(1));
-        System.out.println("Cantidad de hojas antes del Nivel N=3 Iterativo:" + arbolb.cantidadHojasAntesNI(3));
+        System.out.println("1.Cantidad de hojas: " + arbolb.cantidadHojas());
+        System.out.println("2.Cantidad de hojas Iterativo: " + arbolb.cantidadHojasI());
+        System.out.println("3.Cantidad de hojas en Nivel N=1:" + arbolb.cantidadHojasN(1));
+        System.out.println("4.Cantidad de hojas en Nivel N=1 Iterativo:" + arbolb.cantidadHojasNI(1));
+        System.out.println("5.Cantidad de hojas antes del Nivel N=3 Iterativo:" + arbolb.cantidadHojasAntesNI(3));
+        System.out.println("6.Arbol balanceado? " + arbolb.esBalanceado());
+        System.out.println("Recorrido InOrden: " + arbolb.recorridoEnInOrden());
         System.out.println("----------------------------");
 
         System.out.println("PREGUNTA 8");
@@ -74,6 +86,7 @@ public class Consola {
         System.out.println("Cantidad de Nodos Completos luego del nivel N = 0: " + arbolb.cantidadNodosCompletos(0));
         System.out.println("Cantidad de Nodos Completos luego del nivel N = 1: " + arbolb.cantidadNodosCompletos(1));
         System.out.println("Cantidad de Nodos Completos luego del nivel N = 2: " + arbolb.cantidadNodosCompletos(2));
+        System.out.println("----------------------------");
     }
 
 }

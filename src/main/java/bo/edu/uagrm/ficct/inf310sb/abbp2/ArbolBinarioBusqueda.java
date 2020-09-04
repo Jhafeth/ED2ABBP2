@@ -5,7 +5,6 @@
  */
 package bo.edu.uagrm.ficct.inf310sb.abbp2;
 
-import com.sun.org.apache.bcel.internal.generic.AALOAD;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -89,7 +88,35 @@ public class ArbolBinarioBusqueda<K extends Comparable<K>, V> implements IArbolB
 
     @Override
     public List<K> recorridoEnInOrden() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<K> recorrido = new LinkedList<>();
+        if (this.esArbolVacio()) {
+            return recorrido;
+        }
+        Stack<NodoBinario<K, V>> pilaDeNodos = new Stack<>();
+        pilaDeNodos.push(this.raiz);
+        NodoBinario<K, V> nodoActual = pilaDeNodos.pop();
+
+        while (!nodoActual.esVacioHijoIzquierdo()) {
+            pilaDeNodos.push(nodoActual);
+            nodoActual = nodoActual.getHijoIzquierdo();
+        }
+
+        pilaDeNodos.push(nodoActual);
+
+        while (!pilaDeNodos.isEmpty()) {
+            nodoActual = pilaDeNodos.pop();
+            recorrido.add(nodoActual.getClave());
+
+            if (!nodoActual.esVacioHijoDerecho()) {
+                nodoActual = nodoActual.getHijoDerecho();
+                while (!nodoActual.esVacioHijoIzquierdo()) {
+                    pilaDeNodos.push(nodoActual);
+                    nodoActual = nodoActual.getHijoIzquierdo();
+                }
+                recorrido.add(nodoActual.getClave());
+            }
+        }
+        return recorrido;
     }
 
     @Override
@@ -115,7 +142,7 @@ public class ArbolBinarioBusqueda<K extends Comparable<K>, V> implements IArbolB
 
     @Override
     public List<K> recorridoEnPostOrden() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
 
     @Override
@@ -330,6 +357,22 @@ public class ArbolBinarioBusqueda<K extends Comparable<K>, V> implements IArbolB
     }
 
     //pregunta 6 verificar si el arbol esta balenceado recursivo
+    public boolean esBalanceado() {
+        return esBalanceado(this.raiz);
+    }
+
+    private boolean esBalanceado(NodoBinario<K, V> nodo) {
+        if (NodoBinario.esNodoVacio(nodo)) {
+            return true;
+        }
+        if (nodo.esHoja()) {
+            return true;
+        }
+        int diferencia = Math.abs(altura(nodo.getHijoIzquierdo()) - altura(nodo.getHijoDerecho()));
+        boolean b = (diferencia <= 1);
+        return b && esBalanceado(nodo.getHijoIzquierdo()) && esBalanceado(nodo.getHijoDerecho());
+    }
+
     //pregunta 7 logica de postOrden verificar si esta balanceado iterativo
     //pregunta 8 reconstruir arbol con listas en preorden e inorden
     public void reconstruir(List<NodoBinario<K, V>> listaPreOrden, List<NodoBinario<K, V>> listaInOrden) {
@@ -369,25 +412,6 @@ public class ArbolBinarioBusqueda<K extends Comparable<K>, V> implements IArbolB
         return nuevoNodo;
     }
 
-    //    public boolean isAVL() {
-    //        return isAVL(raiz);
-    //    }
-    //
-    //    private boolean isAVL(NodoBinario nodo) {
-    //        if (nodo == null) {
-    //            return true;
-    //        }
-    //        if (nodo.esHoja()) {
-    //            return true;
-    //        }
-    //
-    //        boolean bandera = false;
-    //        if (nivel(nodo.getHijoIzquierdo()) == nivel(nodo.getHijoDerecho())) {
-    //            bandera = true;
-    //        }
-    //
-    //        return bandera && isAVL(nodo.getHijoIzquierdo()) && isAVL(nodo.getHijoDerecho());
-    //    }
     //pregunta 9 sucesor InOrden
     //pregunta 10 predecesor InOrden
     //pregunta 11 eliminar de un arbol AVL
